@@ -16,8 +16,8 @@ public class App {
         String typedWord;
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
         do {
-            WordHelper WordHelper = new WordHelper();
-            String word = WordHelper.getWord();
+            WordHelper wordHelper = new WordHelper();
+            String word = wordHelper.getWord();
             int tryCount = 0;
 
             System.out.println("Type any word:");
