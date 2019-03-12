@@ -1,4 +1,4 @@
-package lab2;
+package ru.example;
 
 import java.io.IOException;
 import java.nio.file.Path;

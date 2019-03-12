@@ -1,4 +1,4 @@
-package lab2;
+package ru.example;
 
 import org.junit.Test;
 import org.junit.Ignore;

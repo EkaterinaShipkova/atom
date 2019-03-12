@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "ru.example.App",
+            "projectName": "lab2",
+            "console": "externalTerminal"
+        }
+    ]
+}
