@@ -9,12 +9,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class WordHelper {
     private String fileName = "dictionary.txt";
+
     public String getWord() throws IOException {
         Path path = Paths.get(fileName);
         Scanner scanner = new Scanner(path);
         ArrayList<String> words = new ArrayList<>();
-        while(scanner.hasNextLine())
-        {
+        while (scanner.hasNextLine()) {
             words.add(scanner.nextLine());
         }
         scanner.close();

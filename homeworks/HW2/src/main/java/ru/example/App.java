@@ -15,12 +15,11 @@ public class App {
         log.info("Bulls and cows. Start game");
         String typedWord;
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
-        do 
-        {
+        do {
             WordHelper WordHelper = new WordHelper();
             String word = WordHelper.getWord();
             int tryCount = 0;
-            
+
             System.out.println("Type any word:");
             do {
                 typedWord = br.readLine();
@@ -35,15 +34,14 @@ public class App {
                 int bullsCount = calculateBulls();
                 int cowsCount = calculateCows();
                 System.out.println("Cows: " + cowsCount + ". Bulls: " + bullsCount);
-            } while(!typedWord.equals(word) && tryCount<10);
+            } while (!typedWord.equals(word) && tryCount < 10);
 
             System.out.println("Word was: " + word);
 
-            if(tryCount == 10) {
+            if (tryCount == 10) {
                 log.info("lose game");
                 System.out.println("You lose!");
-            }
-            else {
+            } else {
                 log.info("win game");
                 System.out.println("Congratulations! You win!");
             }
