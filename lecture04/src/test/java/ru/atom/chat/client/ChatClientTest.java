@@ -13,7 +13,7 @@ import ru.atom.chat.server.ChatApplication;
 import java.io.IOException;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {ChatApplication.class}, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
+@SpringBootTest(classes = { ChatApplication.class }, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ChatClientTest {
     private static String MY_NAME_IN_CHAT = "I_AM_STUPID";
     private static String MY_MESSAGE_TO_CHAT = "SOMEONE_KILL_ME";
@@ -35,7 +35,6 @@ public class ChatClientTest {
         Assert.assertEquals(200, response.code());
     }
 
-
     @Test
     public void viewOnline() throws IOException {
         Response response1 = ChatClient.login(MY_NAME_IN_CHAT);
@@ -56,7 +55,7 @@ public class ChatClientTest {
         System.out.println(response.body().string());
         Assert.assertEquals(200, response.code());
     }
-    
+
     @Test
     public void logout() throws IOException {
         Response response1 = ChatClient.login(MY_NAME_IN_CHAT);

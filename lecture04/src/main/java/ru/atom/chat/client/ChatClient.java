@@ -6,9 +6,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-
 import java.io.IOException;
-
 
 public class ChatClient {
     private static final OkHttpClient client = new OkHttpClient();
@@ -16,73 +14,55 @@ public class ChatClient {
     private static final String HOST = "localhost";
     private static final String PORT = ":8080";
 
-    //POST host:port/chat/login?name=my_name
+    // POST host:port/chat/login?name=my_name
     public static Response login(String name) throws IOException {
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-        Request request = new Request.Builder()
-                .post(RequestBody.create(mediaType, ""))
-                .url(PROTOCOL + HOST + PORT + "/chat/login?name=" + name)
-                .build();
+        Request request = new Request.Builder().post(RequestBody.create(mediaType, ""))
+                .url(PROTOCOL + HOST + PORT + "/chat/login?name=" + name).build();
 
         return client.newCall(request).execute();
     }
 
-    //GET host:port/chat/chat
+    // GET host:port/chat/chat
     public static Response viewChat() throws IOException {
-        Request request = new Request.Builder()
-                .get()
-                .url(PROTOCOL + HOST + PORT + "/chat/chat")
-                .addHeader("host", HOST + PORT)
-                .build();
+        Request request = new Request.Builder().get().url(PROTOCOL + HOST + PORT + "/chat/chat")
+                .addHeader("host", HOST + PORT).build();
         return client.newCall(request).execute();
     }
 
-    //POST host:port/chat/say?name=my_name
-    //Body: "msg='my_message'"
+    // POST host:port/chat/say?name=my_name
+    // Body: "msg='my_message'"
     public static Response say(String name, String msg) throws IOException {
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-        Request request = new Request.Builder()
-            .post(RequestBody.create(mediaType, "msg=" + msg))
-            .url(PROTOCOL + HOST + PORT + "/chat/say?name=" + name)
-            .build();
+        Request request = new Request.Builder().post(RequestBody.create(mediaType, "msg=" + msg))
+                .url(PROTOCOL + HOST + PORT + "/chat/say?name=" + name).build();
         return client.newCall(request).execute();
     }
 
-    //GET host:port/chat/online
+    // GET host:port/chat/online
     public static Response viewOnline() throws IOException {
-                Request request = new Request.Builder()
-            .get()
-            .url(PROTOCOL + HOST + PORT + "/chat/online")
-            .addHeader("host", HOST + PORT)
-            .build();
+        Request request = new Request.Builder().get().url(PROTOCOL + HOST + PORT + "/chat/online")
+                .addHeader("host", HOST + PORT).build();
         return client.newCall(request).execute();
     }
 
-    //POST host:port/chat/logout
-    //Body: "name='my_name'"
+    // POST host:port/chat/logout
+    // Body: "name='my_name'"
     public static Response logout(String name) throws IOException {
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-        Request request = new Request.Builder()
-            .post(RequestBody.create(mediaType, "name=" + name))
-            .url(PROTOCOL + HOST + PORT + "/chat/logout")
-            .build();
+        Request request = new Request.Builder().post(RequestBody.create(mediaType, "name=" + name))
+                .url(PROTOCOL + HOST + PORT + "/chat/logout").build();
         return client.newCall(request).execute();
     }
 
-    //DELETE host:port/chat/deleteChat
+    // DELETE host:port/chat/deleteChat
     public static Response deleteChatHistory() throws IOException {
-        Request request = new Request.Builder()
-            .delete()
-            .url(PROTOCOL + HOST + PORT + "/chat/deleteChat")
-            .build();
+        Request request = new Request.Builder().delete().url(PROTOCOL + HOST + PORT + "/chat/deleteChat").build();
         return client.newCall(request).execute();
     }
 
     public static Response getCurrentDate() throws IOException {
-        Request request = new Request.Builder()
-            .get()
-            .url(PROTOCOL + HOST + PORT + "/chat/currentdate")
-            .build();
+        Request request = new Request.Builder().get().url(PROTOCOL + HOST + PORT + "/chat/currentdate").build();
         return client.newCall(request).execute();
     }
 }
